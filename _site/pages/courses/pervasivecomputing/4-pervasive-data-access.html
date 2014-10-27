@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pervasive Data Access</title>
+    <meta name="description" content="Pervasive Applications course review - part 4">
+    <meta name="author" content="Martin Kojtal">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="shortcut icon" href="/assets/themes/twitter/img/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+  <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">0xc0170</a>
+                <ul class="nav">
+                    <li><a href="/pages/nav/archive.html">Archive</a></li>
+                    <li><a href="/pages/nav/categories.html">Categories</a></li>
+                    <li><a title="Go to github.com/0xc0170" href="https://github.com/0xc0170" target="_blank">Projects</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+          
+<div class="page-header">
+  <h1>Pervasive Data Access</h1>
+  
+   <h1><small>Pervasive Applications course review - part 4</small></h1>
+</div>
+
+<div class="row-fluid post">
+  <div class="span12">
+    
+<h4 id="data-dissemination-in-pervasive-environment">Data dissemination in Pervasive environment</h4>
+
+<ul>
+  <li>Transfer data from producers to interested consumer, two categories: <strong>pull</strong> and <strong>push</strong></li>
+  <li>Characteristics &amp; Challenges:
+    <ul>
+      <li><strong>Limited client capability</strong>: battery life, screen size, CPU, memory…</li>
+      <li><strong>Limited bandwidth &amp; Weak connectivity</strong>: clients don’t stay connected continuously, frequent disconnections impact how transaction management is implemented and how data consistency is guaranteed.</li>
+      <li><strong>Asymmetry in the communication</strong>: downstream much greater than upstream.</li>
+      <li><strong>User Mobility</strong>: different cells and servers at different times.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="pervasive-data-broadcast">Pervasive data broadcast</h4>
+
+<ul>
+  <li>Performance criteria
+    <ul>
+      <li><strong>Access efficiency</strong>: how fast a client request is answered</li>
+      <li><strong>Energy conservation</strong>: how much battery power a mobile client consumes</li>
+    </ul>
+  </li>
+  <li><strong>Broadcast scheduling</strong>: arranges the order of data items and the frequency of these data items in a broadcast channel, to improve the client access efficiency. Broadcast schedules:
+    <ul>
+      <li>Push-based broadcast</li>
+      <li>Pull-based (on-demand) broadcast</li>
+      <li>Hybrid broadcast</li>
+    </ul>
+  </li>
+  <li><strong>Push based broadcast</strong>
+    <ul>
+      <li><strong>Flat broadcast</strong>: All data broadcasted in one cycle, same access time. Inefficient. </li>
+      <li><strong>Probabilistic-Based Broadcast</strong>: Long access time for a data item may be resulted + inferior performance to other broadcast algorithms.</li>
+      <li><strong>Broadcast Disk</strong>: Data items of same range of access probability are grouped into <strong>logical disks</strong>. Each disk is assigned a broadband frequency. A broadcast is decomposed into several minor cycles. One minor cycle = one data item from each disk.</li>
+      <li><strong>Optimal Push Scheduling</strong> (complicated)</li>
+    </ul>
+  </li>
+  <li>Disadvantages of push based scheduling: not tailored to individual client need + tend to limit the broadcast data items to a pool and react slowly to changing client access patterns.</li>
+  <li><strong>On-demand based (pull-based)</strong>: client sends requests to the server through an uplink channel, requests are queued at the server, the server choose requested items, delivers them over the broadcast channel and clear the request in the queue. Clients manage the broadcast channel.</li>
+  <li><strong>Fixed-Size Item</strong> On-demand broadcast: Average access time performance used as the main optimization objective
+    <ul>
+      <li>FCFS: <strong>First-Come-First-Serve</strong> (simple but poor access performance)</li>
+      <li>MRF: <strong>Most Requests First</strong></li>
+      <li>MRFL: <strong>MRF Low</strong> by breaking the pie in favor of the item with low requested probability</li>
+      <li>LWF: <strong>Longest Wait First</strong>: sum of the waiting time of all outstanding requests for the item </li>
+    </ul>
+  </li>
+  <li><strong>Variable-Size Item</strong> On-Demand broadcast
+    <ul>
+      <li>A new performance metric called <strong>stretch</strong> is used (ratio access time/service time). Reasonable metric for variable-size item: takes the size into consideration (service time)</li>
+      <li>PLWF: <strong>Pre-Emptive Longest Wait First</strong></li>
+      <li>SRTF: <strong>Shortest Remaining Time First</strong></li>
+      <li>LTSF: <strong>Long Total Stretch First</strong> (current stretch of a request: ratio = time the request has been queued in the system thus far / service time)</li>
+      <li><strong>MAX algorithm</strong>: assigns a deadline to each request when it arrives at the server. deadline = arrivaltime + servicetime * SMAX (SMAX = max stretch value of the request)</li>
+    </ul>
+  </li>
+  <li><strong>Energy-Efficient</strong> On-Demand broadcast takes energy saving into consideration. Broadcast data items in batches using an indexing technique (index items in the current broadcast cycle). Client tunes into a small portion of the broadcast channel instead of monitoring the broadcast channel (energy saving). Data scheduling based on a priority formula.</li>
+  <li><strong>Hybrid broadcast</strong>: requires 2 queues (request queue + broadcast cycle), a timer and algorithm</li>
+  <li><strong>Aix indexing</strong> for energy conservation, indicates the arrival time of data items (instead of scanning a broadcast channel for requested data items)</li>
+  <li>Aix indexing steps:
+    <ul>
+      <li><strong>Initial probe</strong>: tuning the broadcast channel to determine when an index is broadcast.</li>
+      <li><strong>Index lookup</strong>: accessing the index to determine the time when a required data item is on air.</li>
+      <li><strong>Download</strong>: retrieving required data item at its indicated broadcast time.</li>
+    </ul>
+  </li>
+  <li>Indexing  techniques
+    <ul>
+      <li><strong>Hashing &amp; flexible indexing</strong>: data items inside frames, hash function hashes a key attribute (ex: delivery time) of the frame holding the desired data, shift function guide a search to the frame containing the desired data.</li>
+      <li><strong>Index tree</strong>: stores the key attribute values and the arrival time of the data frames in each node, very efficient for clustered broadcast cycle.</li>
+      <li><strong>Signatures</strong> (for non-cluster based) widely used for information retrieval, signature and query signature generated</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="mobile-data-caching">Mobile Data Caching</h4>
+
+<ul>
+  <li>Caching frequently used data items in the mobile client’s local storage improve access latency and data availability</li>
+  <li>Cache management technique include <strong>cache replacement</strong> (what data items to keep to maximize the space efficiency), <strong>cache coherence</strong> (between source values and cached values) and <strong>cache prefetching</strong> (loads data in advance on the server, if the request is predictable).</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="data-access-based-on-user-requirements">Data Access based on user requirements</h4>
+
+<ul>
+  <li><strong>Time-critical</strong> applications demand data to be made available by a specified “deadline”.</li>
+  <li><strong>Location-based</strong> applications request data based on the current location of the users.</li>
+  <li><strong>Semantic-based</strong> data access: to understand the data access requirement in a semantic way (make required data earlier and more efficient).</li>
+  <li><strong>Reliable</strong> data access: introduce controlled redundancy in the broadcast schedule to deal with unreliable wireless communication (data corrupted or lost because of signal interference for ex)</li>
+</ul>
+
+  </div>
+</div>
+
+
+      </div>
+      <footer class="row">
+            <hr>
+            <div class="span8">
+                <p>
+                    <a title="Go to github.com/0xc0170" target="_blank" href="https://github.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/github.png"/></i></a>
+                    <a title="Go to linkedin.com/martinkojtal" target="_blank" href="http://www.linkedin.com/pub/martinkojtal"><img src="/assets/themes/twitter/bootstrap/img/linked_in.png"/></i></a>
+                    <a title="Go to twitter.com/0xc0170" target="_blank" href="https://twitter.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/twitter.png"/></a>
+
+                </p>
+                <p>&copy; 2014 Martin Kojtal
+                    with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+                    and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+                </p>
+            </div>
+            <div class="span3 pull-right">
+                
+            </div>
+        </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

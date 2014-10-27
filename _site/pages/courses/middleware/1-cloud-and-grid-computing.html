@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cloud and Grid computing</title>
+    <meta name="description" content="Middleware course review - part 1">
+    <meta name="author" content="Martin Kojtal">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="shortcut icon" href="/assets/themes/twitter/img/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+  <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">0xc0170</a>
+                <ul class="nav">
+                    <li><a href="/pages/nav/archive.html">Archive</a></li>
+                    <li><a href="/pages/nav/categories.html">Categories</a></li>
+                    <li><a title="Go to github.com/0xc0170" href="https://github.com/0xc0170" target="_blank">Projects</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+          
+<div class="page-header">
+  <h1>Cloud and Grid computing</h1>
+  
+   <h1><small>Middleware course review - part 1</small></h1>
+</div>
+
+<div class="row-fluid post">
+  <div class="span12">
+    
+<h4 id="cloud-grid-and-cluster">Cloud, Grid and Cluster</h4>
+
+<ul>
+  <li>They are all <strong>parallel</strong> or <strong>distributed</strong> system.</li>
+  <li><strong>Cluster</strong>: Collection of interconnected stand-alone computers with single administration.</li>
+  <li><strong>Grid</strong>: Allows sharing and aggregation of geographically distributed autonomous resources, dynamically at runtime. May involve multiple administration domain.</li>
+  <li><strong>Cloud</strong>: Collection of interconnected virtualised computers that are dynamically provisioned as one or more unified computing resource, based on a negociated SLA.</li>
+</ul>
+
+<hr />
+
+<h4 id="cloud">Cloud</h4>
+
+<p><br /></p>
+
+<h5 id="components">Components</h5>
+
+<ul>
+  <li><strong>Client</strong>: The end used, usually a thin client.</li>
+  <li><strong>Service</strong>: Cloud computing functionality.</li>
+  <li><strong>Application</strong>: Client purchased used of cloud service.</li>
+  <li><strong>Platform</strong>: Cloud middleware launching client application.</li>
+  <li><strong>Storage</strong>: File server and other resources used for client data.</li>
+  <li><strong>Infrastructure</strong>: Cloud control and operation for service provision.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="key-technologies">Key technologies</h5>
+
+<ul>
+  <li><strong>Web 2.0</strong>: Use the web for service participation.</li>
+  <li><strong>Broadband networking</strong></li>
+  <li><strong>SOA</strong>: Client-server development model based on interoperable software services.</li>
+  <li><strong>Virtualisation</strong>: Hosting of multiple logical operating systems, each sharing the available resources.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="hosting">Hosting</h5>
+
+<ul>
+  <li><strong>Remote</strong>: Service is hosted on remote infrastructure.</li>
+  <li><strong>Ubiquitous</strong>: Service is available from many providers.</li>
+  <li><strong>Commodified</strong>: Utility computing model; client pays for what and how much service used.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="customer-choice">Customer choice</h5>
+
+<ul>
+  <li><strong>Advantages</strong>: Buy service, not hardware and software; pay for and used only what is needed; scalable, available, transparent.</li>
+  <li><strong>Disadvantages</strong>: Cost of service; restricted to services that are available; dependency on third party for maintenance; privacy issue.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="deployment-model">Deployment model</h5>
+
+<ul>
+  <li><strong>Internal (private) cloud</strong>: Operated only within an organization.</li>
+  <li><strong>Community cloud</strong>: Jointly owned by several organization as a community.</li>
+  <li><strong>Public cloud</strong>: Owned by an organization selling services to outsiders.</li>
+  <li><strong>Hybrid</strong>: Composition of two or more private, public or community cloud working together to provide a single service.</li>
+  <li><strong>Cloud storage</strong>: Large cloud providers now hire data storage.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="types">Types</h5>
+
+<ul>
+  <li><strong>IaaS</strong> (<em>Infrastructure as a Service</em>): Access to computer hardware over the internet; lease of servers, sofware, databases, hardware etc. as an outsourced service. Example: Dropbox, Amazon Web Services.</li>
+  <li><strong>PaaS</strong> (<em>Platform as a Service</em>): Use web based tools to develop application to run remotly. Example: Windows Azure, Google App Engine.</li>
+  <li><strong>SaaS</strong> (<em>Software as a Service</em>): Access to application running remotely, can provide communication security, monitoring etc. Example: Salesforce, Hotmail.</li>
+</ul>
+
+<hr />
+
+<h4 id="grid">Grid</h4>
+
+<p><br /></p>
+
+<h5 id="key-concepts">Key concepts</h5>
+
+<ul>
+  <li><strong>Virtual organization</strong>: People and resources collaborating accros admin and organization boundaries.</li>
+  <li><strong>Grid middleware</strong>: Running on each resources to interface to the grid; providing specific service.</li>
+  <li><strong>Single virtual computer</strong>: User just perceives “shared resources” without concern for location or owning organization; Issues: heterogeneity, scalability, reliability, computing model, access control.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="features">Features</h5>
+
+<ul>
+  <li><strong>Resources sharing</strong>: Computers, storage, sensors, network; heterogeneity of device, mechanism policy; conditional sharing.</li>
+  <li><strong>Coordinated problem solving</strong>: Integration of distributed resources, compound quality of service requierements.</li>
+  <li><strong>Dynamic, multi-institutional virtual organization</strong>: Dynamic overlays on classic organizational structure.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="scales">Scales</h5>
+
+<ul>
+  <li><strong>Department Grid</strong> (cluster)</li>
+  <li><strong>Enterprise Grid</strong> (example: CERN)</li>
+  <li><strong>Global Grid</strong> (example: NGS)</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="types-1">Types</h5>
+
+<ul>
+  <li><strong>Computational</strong>: Provides computational services (most common).</li>
+  <li><strong>Data</strong>: Provides computational access to large (possibly distributed) datasets from multiple storage systems.</li>
+  <li><strong>Collaboration</strong>: Designed to facilitate collaborative computation.</li>
+  <li><strong>Network</strong>: Provides fault tolerant high performance communication to facilitate computation.</li>
+  <li><strong>Utility</strong>: Computational resources accessed on demand.</li>
+  <li><strong>Cluster</strong>: Smaller grid, operating localy.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="components-1">Components</h5>
+
+<ul>
+  <li><strong>Resources</strong>: Networking, computers, data storage, instruments..</li>
+  <li><strong>Grid middleware</strong>: The operating system of the grid.</li>
+  <li><strong>Operations infrastructure</strong>: Runs enabling services.</li>
+  <li><strong>Virtual organization management</strong>: Procedures for gaining access to resources.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="middleware">Middleware</h5>
+
+<ul>
+  <li>Distributed services and operating system to allow authorised Grid users access to required access. </li>
+  <li><strong>Gridware</strong> includes authentication, negociation of resources access, distributed load balancing, accounting with multiple domains etc.</li>
+</ul>
+
+<p><br /></p>
+
+<h5 id="architecture">Architecture</h5>
+
+<ul>
+  <li><strong>Applications</strong>: Climatology, cosmology, high energy physics. </li>
+  <li><strong>Application toolkits</strong>: Data grid, computational grid, collaborative grid.</li>
+  <li><strong>Grid services</strong>: Protocols, authentication, resource management.</li>
+  <li><strong>Grid fabric</strong>: Disk, network, processor.</li>
+</ul>
+
+<hr />
+
+<h4 id="cluster">Cluster</h4>
+
+<p><br /></p>
+
+<h5 id="types-2">Types</h5>
+
+<ul>
+  <li><strong>Non-dedicated</strong> (network of workstation): Usage of spare workstation, frequently serial communication between workstations, individual owners of workstations.</li>
+  <li><strong>Dedicated</strong> (supercomputer): High performance, parallel communication between workstation nodes, parallel computing.</li>
+</ul>
+
+  </div>
+</div>
+
+
+      </div>
+      <footer class="row">
+            <hr>
+            <div class="span8">
+                <p>
+                    <a title="Go to github.com/0xc0170" target="_blank" href="https://github.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/github.png"/></i></a>
+                    <a title="Go to linkedin.com/martinkojtal" target="_blank" href="http://www.linkedin.com/pub/martinkojtal"><img src="/assets/themes/twitter/bootstrap/img/linked_in.png"/></i></a>
+                    <a title="Go to twitter.com/0xc0170" target="_blank" href="https://twitter.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/twitter.png"/></a>
+
+                </p>
+                <p>&copy; 2014 Martin Kojtal
+                    with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+                    and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+                </p>
+            </div>
+            <div class="span3 pull-right">
+                
+            </div>
+        </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

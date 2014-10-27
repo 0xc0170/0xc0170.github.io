@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Context Awareness</title>
+    <meta name="description" content="Pervasive Applications course review - part 5">
+    <meta name="author" content="Martin Kojtal">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="shortcut icon" href="/assets/themes/twitter/img/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+  <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">0xc0170</a>
+                <ul class="nav">
+                    <li><a href="/pages/nav/archive.html">Archive</a></li>
+                    <li><a href="/pages/nav/categories.html">Categories</a></li>
+                    <li><a title="Go to github.com/0xc0170" href="https://github.com/0xc0170" target="_blank">Projects</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+          
+<div class="page-header">
+  <h1>Context Awareness</h1>
+  
+   <h1><small>Pervasive Applications course review - part 5</small></h1>
+</div>
+
+<div class="row-fluid post">
+  <div class="span12">
+    
+<h4 id="wireless-communication-wireless-cellular-network-gsm---architecture">Wireless Communication: Wireless cellular network (GSM) - architecture</h4>
+<ul>
+  <li><strong>Coverage area</strong> or <strong>cells</strong>: form regions of a geographical area</li>
+  <li><strong>Base station</strong>: controls communication in each cells</li>
+  <li><strong>Mobile Switching Centre (MSC)</strong>:  controls base stations</li>
+  <li><strong>Public Switching Telephone Network (PSTN)</strong>: connects MSC together</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="wireless-communication-wireless-cellular-network-gsm--important-notions">Wireless Communication: Wireless cellular network (GSM) – important notions</h4>
+<ul>
+  <li><strong>Uplinks</strong>: channels that handle transmissions from mobile users to base stations</li>
+  <li><strong>Downlink</strong>: channels that handle transmission from base stations to mobile users</li>
+  <li><strong>Handoff</strong>: process wherein a user moves from one base station (host) to another (destination). User’s session/connection info are transmitted to the destination.</li>
+  <li><strong>HLR</strong> (Home Location Register) and <strong>VHR</strong> (Visiting Location Register) are databases storing user’s information.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="context--definition">Context – Definition</h4>
+<ul>
+  <li>“A context represents the <strong>state</strong> or <strong>situation</strong> in the environment of a system that affects that <strong>system’s behaviour</strong> (application specific)” (UbiCom Book)</li>
+  <li>“Any information that can be used to describe the situation of <strong>people, resources and services</strong> in a service-oriented environment. It may include all other info that can be considered relevant to the interaction between a user and a service.” (Dey &amp; Schilit)</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="context-aware">Context-aware</h4>
+<ul>
+  <li>Pervasive and mobile applications operate in <strong>highly dynamic environments</strong></li>
+  <li><strong>Aim</strong>: automatically perform tasks without demanding much of the user intervention</li>
+  <li><strong>Objective</strong>: provide such facilities – automatically adapt to the changes in location, time and user or device situation</li>
+  <li>Different <strong>applications types</strong> like network, device, time, location, mobility context-aware</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="main-sources-of-context-information">3 main sources of context information</h4>
+<ul>
+  <li><strong>Physical devices</strong>: context info include location, time, temperature</li>
+  <li><strong>Users</strong> (Human): context include personalisation, user input, other HCI info</li>
+  <li><strong>Software applications</strong>: info related to device display, content adaptation, etc.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="context-adaptation">Context adaptation</h4>
+<ul>
+  <li><strong>Passive context adaptation system</strong>: context is presented to the user and let it decide on how to change application behaviour</li>
+  <li><strong>Active context adaptation system</strong>: system automatically changes application behaviour according to the context information</li>
+  <li><strong>Personalisation of context</strong>: “system let users specify the settings for how the application should behave in a given situation” (Barkhuus and Dey) </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="context-awareness-issues-and-challenges">Context-awareness: issues and challenges</h4>
+<ul>
+  <li><strong>Uncertainty of context info</strong>: user contexts out of date, incomplete, incorrect or imprecise</li>
+  <li>Factors contributing to the uncertainty of context info: technical or environment problems or users related issues</li>
+  <li><strong>Context representation</strong>: it can have alternative representations</li>
+  <li><strong>Context processing</strong>: it can generate huge volumes of data, need low resource infrastructure</li>
+  <li><strong>Privacy issues</strong>: it can reduces the privacy and distract users</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="location-awareness-context">Location-awareness context</h4>
+<ul>
+  <li>Steps: 1 trigger location-aware services, 2 determine current location, 3 determine the location context, 4 service adaptation</li>
+  <li>E.g. location determination in call routing for mobile users (see GSM architecture)</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="content-adaptation-2-types">Content adaptation, 2 types:</h4>
+<ul>
+  <li><strong>Device or terminal context</strong>: can be done on the server by determining device type and choosing the appropriate content (server side adaptation) or on the client  by formatting the content at retrieval time (client side adaptation) or as the content passes through network nodes (in-network adaptation)</li>
+  <li><strong>Network context</strong>: a service that is aware of the characteristics of the physical network</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="context-management-system">Context Management System</h4>
+<ul>
+  <li><strong>Context toolkit</strong>
+    <ul>
+      <li><strong>Sensor layer</strong>: works as an information (or data) collector and provider, contains a network of sensor</li>
+      <li><strong>Semantic layer</strong>: defines the context model of a context-aware app and “supplies the control layer with an accurate image of the current interaction situation”</li>
+    </ul>
+  </li>
+  <li><strong>Entity layer</strong>: defines relationship between entities and their context</li>
+  <li><strong>Entity relationship layer</strong>: models dependencies between different entities in order to define relationships</li>
+  <li><strong>Process layer</strong>: analysis of the context data, observes the evolution of the context
+    <ul>
+      <li><strong>Control layer</strong>: gets info from the semantic layer and takes appropriate action: it generates sequences of commands for the control of the behaviour of the domain</li>
+      <li><strong>Indicator/actuator layer</strong>: handles the connection back to the domain, maps the decisions taken by the control layer to real world action</li>
+    </ul>
+  </li>
+  <li><strong>The design tool</strong>: panels for sensors, (context) attributes (add, remove etc.), modelling, control, queries, etc.</li>
+  <li><strong>The mobile collector</strong>: tool for the production of contextualized content by content provider</li>
+  <li><strong>Content management</strong>: provides repositories (metadata of content + actual content) to store all the info about context, users and devices</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="crumpet">CRUMPET:</h4>
+<ul>
+  <li><strong>Creation of User-friendly Mobile services Personalised for Tourism</strong>, EU FP5, maps, routes and sight recommendations can be adapted according to the current location of the tourist, personal context of a service uses, network context, and terminal context.</li>
+</ul>
+
+
+  </div>
+</div>
+
+
+      </div>
+      <footer class="row">
+            <hr>
+            <div class="span8">
+                <p>
+                    <a title="Go to github.com/0xc0170" target="_blank" href="https://github.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/github.png"/></i></a>
+                    <a title="Go to linkedin.com/martinkojtal" target="_blank" href="http://www.linkedin.com/pub/martinkojtal"><img src="/assets/themes/twitter/bootstrap/img/linked_in.png"/></i></a>
+                    <a title="Go to twitter.com/0xc0170" target="_blank" href="https://twitter.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/twitter.png"/></a>
+
+                </p>
+                <p>&copy; 2014 Martin Kojtal
+                    with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+                    and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+                </p>
+            </div>
+            <div class="span3 pull-right">
+                
+            </div>
+        </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

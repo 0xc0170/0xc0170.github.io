@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Distributed and collaborative algorithms</title>
+    <meta name="description" content="Pervasive Applications course review - part 3">
+    <meta name="author" content="Martin Kojtal">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="shortcut icon" href="/assets/themes/twitter/img/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+  <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">0xc0170</a>
+                <ul class="nav">
+                    <li><a href="/pages/nav/archive.html">Archive</a></li>
+                    <li><a href="/pages/nav/categories.html">Categories</a></li>
+                    <li><a title="Go to github.com/0xc0170" href="https://github.com/0xc0170" target="_blank">Projects</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+          
+<div class="page-header">
+  <h1>Distributed and collaborative algorithms</h1>
+  
+   <h1><small>Pervasive Applications course review - part 3</small></h1>
+</div>
+
+<div class="row-fluid post">
+  <div class="span12">
+    
+<h4 id="distributed-algorithms">Distributed algorithms</h4>
+<ul>
+  <li>Problems solved: resource allocation, distributed search, cooperative scheduling, spanning tree generation</li>
+  <li>Are typically executed <strong>concurrently</strong> with separate parts of the algo being run <strong>simultaneously</strong> on <strong>independent</strong> processors.</li>
+  <li>Challenge: <strong>coordinating</strong> the behavior of the independent parts of the algo in the face of processor <strong>failures</strong> and unreliable communication links</li>
+</ul>
+
+<p><strong>Collaboration Filtering (CF)</strong>: Process of filtering for information or patterns using the know preferences of a group of users to make recommendations or predictions of the unknown preferences for others users.</p>
+
+<p><strong>Common insight</strong>: personal tastes are correlated</p>
+
+<p><strong>Recommender systems</strong> assist and augment the natural social process to help people to find the most interesting and valuable information for them. <strong>Tapestry</strong>, first recommender system (1992)</p>
+
+<p><strong>CF fundamental assumption</strong>: if users X and Y rate n items similarly, or have similar behaviors, and hence will rate or act on other items similarly.</p>
+
+<p><br /></p>
+
+<h4 id="cf-challenges">CF Challenges</h4>
+<ul>
+  <li>Provide fast and <strong>accurate</strong> recommendations to attract the interest of customers</li>
+  <li><strong>Data Sparsity</strong>: when very large product set, performance challenge</li>
+  <li><strong>Cold start</strong> problem: new user or item just entered the system, not enough info</li>
+  <li><strong>Reduced coverage</strong> problem: small number of user’s rating but large number or item </li>
+  <li><strong>Neighboor transitivity</strong>: data sparsity -&gt; users with similar tastes may not be identified as such if they have not both rated any of the same items</li>
+  <li><strong>Scalability</strong>: if users and items grow tremendously, CF algo will suffer</li>
+  <li><strong>Synonymy</strong>: same or very similar items have different names, need to construct a semantic space to associate terms and documents</li>
+  <li><strong>Gray Sheep</strong>: users whose opinions do not consistently  agree or disagree with any group of people</li>
+  <li><strong>Shilling attacks</strong>: tons of positive recommendation for their own materials and negative recommendation for their competitors.</li>
+  <li><strong>Privacy</strong>: people may not want their habit or views widely known</li>
+  <li><strong>Increased noise</strong>: another challenge as the user population becomes more diverse</li>
+</ul>
+
+<p><strong>The Netfix Prize Challenge</strong>: open competition for the best CF algo. Team “BellKor’s Pragmatic Chaos” 10.07% improvement of RMSE in 2009</p>
+
+<p><br /></p>
+
+<h4 id="cf-techniques">CF Techniques</h4>
+<ul>
+  <li>Memory-Based</li>
+  <li>Model-Based</li>
+  <li>Hybrid </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="memory-based-cf-algos">Memory-Based CF algos:</h4>
+<ul>
+  <li>Generate prediction with entire or sample of the user-item database. Every user is part of a group of people with similar interests. Prediction produced with the neighbors of a new user. </li>
+  <li><strong>Neighborhood-based CF algo</strong> is a prevalent memory based CF algo. It calculates the similarity or weight between two users or two items, produce prediction and generate Top-N recommendation.</li>
+  <li><strong>Similarity computation</strong> is a critical step, determines the similarity between two co-rated items or two users.
+    <ul>
+      <li><strong>Correlation-Based similarity</strong> measured by computing a <strong>Person correlation</strong></li>
+      <li><strong>Vector Cosine-Based similarity</strong> </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>Prediction and recommendation computation</strong> is the most important step in a CF system. In the neighborhood-based CF algo, a subset of nearest neighbor of the active user are chosen based on their similarity with him and a weighted aggregate of their rating is used to generate prediction for the active user.
+    <ul>
+      <li><strong>Weighted sum of others ratings</strong></li>
+      <li><strong>Simple weighted average</strong> (for item-based prediction)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>Top-N recommendation</strong> is to recommend a set of N top-ranked items that will be of interest to a certain user (analyze the user-item matrix to discover relations between different user or items and use them to compute the recommendation)
+    <ul>
+      <li><strong>User-based</strong> Top-N recommendation algo</li>
+      <li><strong>Item-based</strong> Top-N recommendation algo</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="model-based-cf-algos">Model-Based CF Algos:</h4>
+<ul>
+  <li>Model such as machine learning or data mining algo allow the system to learn to recognize complex patterns based on the training data and then make intelligent prediction for the collaborative filtering tasks. </li>
+  <li>Bayesian models, clustering models and dependency networks have been investigated to <strong>solve the shortcoming of memory-based algo</strong>.</li>
+  <li>The goal is more to uncover latent factors rather than explain ratings. Most of the model are based on creating a classification or clustering technique (the number of paramaters can be reduced)</li>
+  <li><strong>Advantages</strong>: handle sparsity better than memory-based, helps with scalability for large data sets, improve the prediction performance, intuitive rationale for the recommendation.</li>
+  <li><strong>Disadvantages</strong>: expensive model building, tradeoff between prediction performance and scalability</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="hybrid-cf-algo">Hybrid CF Algo</h4>
+<p>To combine the memory-based and the model-based algos, overcome the limitation of native CF approaches, improves the prediction performance, overcomes the CF problems such as sparsity and loss information. Disadvantage: increased complexity and expensive to implement.</p>
+
+  </div>
+</div>
+
+
+      </div>
+      <footer class="row">
+            <hr>
+            <div class="span8">
+                <p>
+                    <a title="Go to github.com/0xc0170" target="_blank" href="https://github.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/github.png"/></i></a>
+                    <a title="Go to linkedin.com/martinkojtal" target="_blank" href="http://www.linkedin.com/pub/martinkojtal"><img src="/assets/themes/twitter/bootstrap/img/linked_in.png"/></i></a>
+                    <a title="Go to twitter.com/0xc0170" target="_blank" href="https://twitter.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/twitter.png"/></a>
+
+                </p>
+                <p>&copy; 2014 Martin Kojtal
+                    with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+                    and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+                </p>
+            </div>
+            <div class="span3 pull-right">
+                
+            </div>
+        </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

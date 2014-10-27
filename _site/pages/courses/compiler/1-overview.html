@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Overview</title>
+    <meta name="description" content="Language spec and compiler construction - part 1">
+    <meta name="author" content="Martin Kojtal">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="shortcut icon" href="/assets/themes/twitter/img/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+  <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">0xc0170</a>
+                <ul class="nav">
+                    <li><a href="/pages/nav/archive.html">Archive</a></li>
+                    <li><a href="/pages/nav/categories.html">Categories</a></li>
+                    <li><a title="Go to github.com/0xc0170" href="https://github.com/0xc0170" target="_blank">Projects</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+          
+<div class="page-header">
+  <h1>Overview</h1>
+  
+   <h1><small>Language spec and compiler construction - part 1</small></h1>
+</div>
+
+<div class="row-fluid post">
+  <div class="span12">
+    
+<h4 id="introduction">Introduction</h4>
+
+<ul>
+  <li>Compiler translates source code to machine code</li>
+  <li>Interpreter executes source code “directly” (ex: statements in a loop are scanned and parsed again and again).</li>
+  <li>Variant: interpretation of intermediate code of a VM</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="dynamic-structure-of-a-compiler-">Dynamic structure of a compiler :</h4>
+
+<ul>
+  <li>1 Lexical analysis (scanning) -&gt; token stream, token has numbers + values (when needed)</li>
+  <li>2 Parsing -&gt; syntax tree (structure of the program)</li>
+  <li>3 Semantic analysis (type checking, symbol table…)</li>
+  <li>4 Optimization</li>
+  <li>5 Code generation (machine or bytecode)</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="static-structure-of-a-compiler">Static structure of a compiler:</h4>
+
+<ul>
+  <li>Scanner: provides tokens from the source code</li>
+  <li>Parser and sem. Analysis: “main program” directs the whole compilation</li>
+  <li>Symbol table: maintains info about declared names and types</li>
+  <li>Code generation: generates machine code</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="grammars-four-components">Grammars: four components</h4>
+<ul>
+  <li>Terminal symbols: are atomic (“if”, ident, number…)</li>
+  <li>Nonterminal symbols: are decomposed into smaller units (Statement, Condition, Type…)</li>
+  <li>Productions: rules how to decompose nonterminals (Statement = Designator “=” Expr”;” … )</li>
+  <li>Start symbol: topmost nonterminal</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="ebnf-extended-backus-naur-form-for-writing-grammar">EBNF (Extended Backus-Naur form) for writing grammar</h4>
+<ul>
+  <li>Productions
+    <ul>
+      <li>Statement = “write” ident “,” Expression “;”.</li>
+      <li>Terminal symbols start with lower-case letters</li>
+      <li>Nonterminal symbols start with upper-case letters</li>
+    </ul>
+  </li>
+  <li>Metasymbols
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>separates alternatives -&gt; a</td>
+              <td>b</td>
+              <td>c = a or b or c</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>(…) groups alternatives -&gt; a(b</td>
+              <td>c) = ab</td>
+              <td>ac</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>[…] optional part -&gt; [a]b = ab</td>
+              <td>b</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>{…} iterative part -&gt; {a}b = b</td>
+              <td>ab</td>
+              <td>aab</td>
+              <td>aaab …</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>John Backus developed the first fortran compiler, Peter Naur edited the Algol60 report</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="start-symbols">Start symbols:</h4>
+
+<ul>
+  <li>terminal symbols with witch a nonterminal can start -&gt; First(Factor)=ident, number, “(”</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="successors">Successors:</h4>
+
+<p>terminal symbols can follow a nonterminal in the grammar -&gt; Follow(Expr)=”)”, eof (eof: end of file)</p>
+
+<p><br /></p>
+
+<h4 id="strings">Strings</h4>
+
+<ul>
+  <li>A finite sequence of symbols from an alphabet</li>
+  <li>Alphabet: all terminal and nonterminal symbols of a grammar</li>
+  <li>Strings denoted by greek letter α, β … , emty string ε</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="derivation">Derivation</h4>
+
+<ul>
+  <li>Direct: α =&gt; β -&gt; Term = Factor * Factor =&gt; Term = ident * Factor</li>
+  <li>Indirect: α =&gt; y1 =&gt; y2 =&gt; … =&gt; yn =&gt;s β</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="recursion-can-be-used-to-represent-repetitions-and-nested-structures">Recursion: can be used to represent repetitions and nested structures</h4>
+
+<ul>
+  <li>Direct: X =&gt; ω1 X ω2
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>Left recursion X = b</td>
+              <td>Xa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>Right recursion X = b</td>
+              <td>aX.</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>Central recursion X = b</td>
+              <td>“(” X “)”.</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>Indirect: X =&gt; * ω1 X ω2</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="chomskys-classification-of-grammar">Chomsky’s classification of grammar</h4>
+
+<ul>
+  <li>Class 0: Unrestricted grammars recognized by Turing machines (α and β arbitrary)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Class 1: Context-sensitive grammars recognized by linear bounded automata (</td>
+          <td>α</td>
+          <td>≤</td>
+          <td>β</td>
+          <td>)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Class 2: Context-free grammars recognized by push-down automata (α = NT, β ≠ ε)</li>
+  <li>Class 3: Regular grammars recognized by finite automata (α = NT, β = T or T NT)</li>
+</ul>
+
+  </div>
+</div>
+
+
+      </div>
+      <footer class="row">
+            <hr>
+            <div class="span8">
+                <p>
+                    <a title="Go to github.com/0xc0170" target="_blank" href="https://github.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/github.png"/></i></a>
+                    <a title="Go to linkedin.com/martinkojtal" target="_blank" href="http://www.linkedin.com/pub/martinkojtal"><img src="/assets/themes/twitter/bootstrap/img/linked_in.png"/></i></a>
+                    <a title="Go to twitter.com/0xc0170" target="_blank" href="https://twitter.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/twitter.png"/></a>
+
+                </p>
+                <p>&copy; 2014 Martin Kojtal
+                    with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+                    and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+                </p>
+            </div>
+            <div class="span3 pull-right">
+                
+            </div>
+        </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Message passing and PVM</title>
+    <meta name="description" content="Middleware course review - part 5">
+    <meta name="author" content="Martin Kojtal">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="shortcut icon" href="/assets/themes/twitter/img/favicon.ico">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+  <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">0xc0170</a>
+                <ul class="nav">
+                    <li><a href="/pages/nav/archive.html">Archive</a></li>
+                    <li><a href="/pages/nav/categories.html">Categories</a></li>
+                    <li><a title="Go to github.com/0xc0170" href="https://github.com/0xc0170" target="_blank">Projects</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+          
+<div class="page-header">
+  <h1>Message passing and PVM</h1>
+  
+   <h1><small>Middleware course review - part 5</small></h1>
+</div>
+
+<div class="row-fluid post">
+  <div class="span12">
+    
+<h4 id="message-passing-models-and-requirements">Message Passing Models and requirements</h4>
+
+<ul>
+  <li>Computation(MIPS, Flops), Communication(latency + bandwidth), Synchronization(timing constraints, handshaking)</li>
+  <li>Pipe, socket, ACID</li>
+  <li>Deadlock: Mutual exclusion, hold and wait, non preemption, circular wait – Livelock</li>
+  <li>Synchronous/Asynchronous – Blocking/Non-Blocking – Sender/Receiver naming Static/Dynamic – Connection Oriented/Connectionless – Scatter/Gather – Transient/Persistent</li>
+  <li>Transmission time = latency + data_length / data_rate</li>
+  <li>Advantages/disadvantages</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="the-client-server-model">The Client Server model</h4>
+<ul>
+  <li>Comparison to P2P Model</li>
+  <li>Thin and Thick (or Fat) Clients</li>
+  <li>Binding and the Name Server</li>
+  <li>Iterative / Concurrent server</li>
+  <li>Stateful / Stateless server</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="distributed-memory-computing">Distributed Memory Computing</h4>
+<ul>
+  <li>MPI and PVM approaches</li>
+  <li>Shared memory – Threads – Message Passing</li>
+  <li>Control and Data Parallel</li>
+  <li>Parallel computing / Distributed computing / Concurrent</li>
+  <li>Amdahl’s law: Speedup(P)= TimeWith1Processor / TimeWithPProcessor = P / 1 + (P-1)f
+Efficiency: Ep(P) = Sp(P) / P = 1/1 + (P-1)f</li>
+  <li>Multicast Model: T = L+N / D and Tp = PL + N/D + NC/P and Sp = T1 / Tp = NC / (PL+N / D+NC / P)</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="pvm">PVM</h4>
+<ul>
+  <li>Pvmd (daemon process, create and manage the VM) &amp; spawning (user lib for starting new processes, task coordination and message passing)</li>
+</ul>
+
+<p><br /></p>
+
+<div class="ten centered columns">
+    <img class="span3 offset1" src="/assets/themes/img/page/courses/pvm1.png" width="200px" />
+    <img class="span5 offset2" src="/assets/themes/img/page/courses/pvm2.png" />
+</div>
+
+  </div>
+</div>
+
+
+      </div>
+      <footer class="row">
+            <hr>
+            <div class="span8">
+                <p>
+                    <a title="Go to github.com/0xc0170" target="_blank" href="https://github.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/github.png"/></i></a>
+                    <a title="Go to linkedin.com/martinkojtal" target="_blank" href="http://www.linkedin.com/pub/martinkojtal"><img src="/assets/themes/twitter/bootstrap/img/linked_in.png"/></i></a>
+                    <a title="Go to twitter.com/0xc0170" target="_blank" href="https://twitter.com/0xc0170"><img src="/assets/themes/twitter/bootstrap/img/twitter.png"/></a>
+
+                </p>
+                <p>&copy; 2014 Martin Kojtal
+                    with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+                    and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+                </p>
+            </div>
+            <div class="span3 pull-right">
+                
+            </div>
+        </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

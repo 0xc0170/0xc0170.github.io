@@ -11,7 +11,11 @@ img{
 }
 
 a {
-    color: #141514;
+    color: #002EB8;
+}
+
+.post_link {
+    color: black;
 }
 
 a:hover, a:focus {

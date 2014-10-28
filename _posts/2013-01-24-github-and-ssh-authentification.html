@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Github and ssh authentification"
+date: 2013-01-24
+comments: true
+categories:
+ - git
+---
+
+<div class='post'>
+I had to set up git for 2 different accounts, but ssh-agent did not allow me to add anything. I found few solutions but none of them was working in my case. Windows 7 runs on my machine. Eventually I found one article which solved my problem, since that ssh-agent is running always when I execute Git bash. Here's the link:<br /><br /><a href="http://www.webweavertech.com/ovidiu/weblog/archives/000326.html">[www.webweavertech.com/ovidiu/weblog]</a><br /><br />Update&nbsp; Januar 24th:<br /><br />It stopped working, agent was not able to run thus I couldn't fetch anything. The error which was display : bind I was struggling with it again until I tried to change this script:<br /><a href="http://www.electricmonk.nl/log/2012/04/24/re-use-existing-ssh-agent-cygwin-et-al/">Re-use existing ssh agent [www.electricmonk.nl]</a><br /><br />It executes ssh-agent and automatically add one of my keys when I run git bash:<br /><br />export SSH_AUTH_SOCK=/tmp/.ssh-socket<br /><br />ssh-add -l &gt;/dev/null 2&gt;&amp;1<br />if [ $? = 2 ]; then<br />&nbsp;&nbsp; # No ssh-agent running<br />&nbsp;&nbsp; rm -rf $SSH_AUTH_SOCK<br />&nbsp;&nbsp; ssh-agent -a $SSH_AUTH_SOCK &gt;/tmp/.ssh-script<br />&nbsp;&nbsp; source /tmp/.ssh-script<br />&nbsp;&nbsp; echo $SSH_AGENT_PID &gt; /tmp/.ssh-agent-pid<br />&nbsp;&nbsp; rm /tmp/.ssh-script<br />&nbsp;# add key only if ssh agent is not running<br />&nbsp; ssh-add c:/Users/xxx/.ssh/ssh_key<br />fi<br /></div>

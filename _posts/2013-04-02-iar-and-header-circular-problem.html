@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Header circular problem (impossible errors received)"
+date: 2013-04-02
+comments: true
+categories:
+ - C/C++
+---
+
+Once I moved only one include from the main code file to the main header file, I received weird errors from IAR:<br /><br />Error[Pe020]: identifier "namespace" is undefinied<br />Error[Pe065]: expected a ";"<br />and so on... <br /><br />My intuition was that it is header include problems. How could it scream namespace is undefined.<br />I corrected few includes in my application but still no success. The same application was successfully built in KEIL. I continued with removal all unnecessary includes until I found the one which caused all errors. <br /><br />Lesson learned, time to do a review of our includes in all applications.

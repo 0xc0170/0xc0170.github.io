@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Perl & gnuplot for generating graphs"
+date: 2013-05-22
+comments: true
+categories:
+ - programming
+---
+
+<div class='post'>
+I am going to present here one small script which I use to generate graphs. With small help of perl (to prepare data from text data containing hex values send from sensing board) and gnuplot.<br /><br />I'll paste here a subroutine to generate a plot file for gnuplot. The subroutine has only one parameter, the file handle to generate a plot file. There's a multiplot with 3 graphs, 2 columns or only one in some cases. Depends on $outfile_name[3]. If there're no data available, only one column is genereated. This could be easily customize to your needs. <br /><br />I have tweaked it to generate 2 graphs, one is multiplot 5,1 , another one is 3,1. All you have to do before you call this subroutine, prepare your data. <br /><br /><script src="http://pastebin.com/embed_js.php?i=yGvgAHX3"></script><br /><br />Here's an example of usage, create plt file,close it and call gnuplot.<br /><br />generate_plot( *PLT );<br />close PLT;<br />`$gnuplot $file_name[6]`; #file_name is mine plt file (graph.plt)</div>

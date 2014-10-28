@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Kinetis K GCC startup"
+date: 2013-06-09
+comments: true
+categories:
+ - embedded
+---
+
+<div class='post'>
+I have pushed "lightweight" gcc demo to my github repository. A generated CodeWarrior project for Kinetis K with GCC compiler contains a lot of "bloat" in my opinion therefore I decided to write trivial startup without including any libraries (only stdin included for C99 types). C++ support is not present, neither RAM target.<br /><br />It contains a GPIO demo for the TWRK60N512 at the moment. The demo instantly toogles LED1 on the tower board and LED2 toogles only when the button SW1 is pressed.<br /><br />The demo contains following files:<br /><ul><li><span style="font-size: x-small;">common/common.h - including purpose</span></li><li><span style="font-size: x-small;">cpu/headers/derivative.h - include cpu specific header</span></li><li><span style="font-size: x-small;">cpu/headers/MK60DZ10.h - freescale's header file</span></li><li><span style="font-size: x-small;">cpu/startup_k60.c - vectors plus reset handler </span></li><li><span style="font-size: x-small;">cpu/system_k60.c - system init function which inicializes CPU (clocks - 96MHz). This needs to be edited to reflect desired cpu clock freq</span></li><li><span style="font-size: x-small;">cpu/system_k60.h </span></li><li><span style="font-size: x-small;">k60n512_flash.ld - GNU linker for K60</span></li><li><span style="font-size: x-small;">main.h </span></li><li><span style="font-size: x-small;">main.c</span></li><li><span style="font-size: x-small;">Makefile </span></li></ul>As could be seen, there are no drivers included. The demo itself only contains necessary files to initialize CPU and jump to the main function.<br /><br />This example could be used with the tutorial which I wrote previously, openOCD with the kinetis K60. I used it as the test project.<br /><br />Kinetis Kxx gcc startup on github : <a href="https://github.com/0xc0170/kinetis_kxx_gcc/tree/master/gpio_demo_twrk60n512">GPIO gcc Kinetis K (K60) [www.github.com/0xc0170/]</a><br /><br />Update1: I added K20D72M board </div>

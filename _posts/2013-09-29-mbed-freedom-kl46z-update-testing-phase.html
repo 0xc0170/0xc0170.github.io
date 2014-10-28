@@ -1,0 +1,11 @@
+---
+layout: post
+title: "mbed freedom KL46Z (update  - testing phase)"
+date: 2013-09-29
+comments: true
+categories:
+ - mbed
+---
+
+<div class='post'>
+I created a branch from mbed master, which contains KL46Z GCC ARM support.<br />KL46Z is similar to KL25Z. Be aware of their differences. KL46Z is bigger brother of KL25Z, it has on top of KL25Z features - I2S and LCD module. The memory footprint is also bigger (256mb flash, 32kb ram).<br /><br />I officially started testing today, I made GCC running with my makefile few days ago. This time I took a look at MUX options in HAL layer and interrupts. Of course, there were problems I had to face.<br /><br />I added KEIL (in mbed is named ARM). I met again with BKTP instruction in KEIL (heap was set to 0, as the  last time), clock configuration was set to a wrong value. Consequently, timer's clock were not activated - no Ticker interrupt.<br /><br />All this updates are currently on my branch, will be available soon.</div>

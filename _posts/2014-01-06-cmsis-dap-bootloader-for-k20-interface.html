@@ -1,0 +1,11 @@
+---
+layout: post
+title: "CMSIS-DAP bootloader for K20 interface (news)"
+date: 2014-01-06
+comments: true
+categories:
+ - CMSIS-DAP
+---
+
+<div class='post'>
+The freedom platform and some tower boards contain openSDA circuit. OpenSDA is managed by Freescale Kinetis K20 MCU (Cortex -M4).<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://low-powerdesign.com/sleibson/wp-content/uploads/2012/11/OpenSDA-Block-diagram.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://low-powerdesign.com/sleibson/wp-content/uploads/2012/11/OpenSDA-Block-diagram.jpg" height="182" width="400" /></a></div>It is claimed to be open-standard serial and debug adapter. It's not by "all" means, because the P&amp;E bootloader can't be reprogrammed, as the chip is locked. Thus CMSIS-DAP interface was used on top of P&amp;E bootloader.<br /><br />CMSIS-DAP is the interface firmware which connects the Debug Port to USB. It consists of a debug unit and a device, both are usually assembled on a single board.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://www.keil.com/support/man/docs/dapdebug/cmsis_dap_interface.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://www.keil.com/support/man/docs/dapdebug/cmsis_dap_interface.png" height="246" width="400" /></a></div><br /><br />I was porting bootloader for K20 the last 3 days. As result, I sent yesterday a pull request to CMSIS-DAP repository (consider it's the first initial version as it's not yet on master branch), which means that the circuit openSDA (K20) will have full CMSIS-DAP support.<br />The link to my pull request <a href="https://github.com/mbedmicro/CMSIS-DAP/pull/14">Pull request #14 for CMSIS-DAP [github.com/mbedmicro/CMSIS-DAP]</a><br /><br />You can freely design your boards which could use CMSIS-DAP (bootloader + interface). I will describe CMSIS-DAP more in the following days.</div>

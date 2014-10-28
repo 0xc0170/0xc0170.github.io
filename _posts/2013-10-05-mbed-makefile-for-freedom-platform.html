@@ -1,0 +1,11 @@
+---
+layout: post
+title: "mbed makefile for the freedom platform (update)"
+date: 2013-10-05
+comments: true
+categories:
+ - mbed
+---
+
+<div class='post'>
+Those who use my makefile for freedom boards on mbed (KL25Z at the moment), please update if you want to have more flash available for your application.<br /><br /><b>Current makefile version is 1.2.&nbsp;</b><br /><b>Link: <a href="https://github.com/0xc0170/mbed_gcc_kl25">KL25Z makefile [https://github.com/0xc0170]</a></b><br /><br />It was set previously that floating printf/scanf were included. I decided to comment that linker option out. The text size of mbed hello world which I used in the tutorials, went down from 26kB to 2.7kB.<br /><br />For other freedom boards, you can use this makefile. I have been using it for KL46 (only to rename KL25Z to KL46Z), run without any problems.<br /><br />I will add support of GCC for KL05Z soon.</div>

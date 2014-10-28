@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Freescale K20D50M (Target K20D5M) was added to mbed sources (news)"
+date: 2013-12-26
+comments: true
+categories:
+ - mbed
+---
+
+<div class='post'>
+I have added another Freescale target to mbed github repository, this time it's the first Freescale Cortex M4 target. <br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://cache.freescale.com/files/graphic/block_diagram/products/software_tools/FRDM-K20D50M_BD.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="234" src="http://cache.freescale.com/files/graphic/block_diagram/products/software_tools/FRDM-K20D50M_BD.jpg" width="320" /></a></div><br />I had pushed a branch which contains K20D5M target files, it was merged a minute ago to mbed master. It contains exporters for GCC ARM and uVision (ARMCC). I will add a new blog post how to use those exporters, it completely facilitates testing.<br /><br />The K20D5M is supported, not fully functional. Demo like Hello world works, but for example I2C is not yet complete, neither PWM. Any help with this target is welcomed !<br /><br />Update your K20D50M to CMSIS-DAP interface, which I shared on my mbed notepad, currently in beta version, link <a href="http://mbed.org/users/Kojto/notebook/cmsis-dap-for-the-freedom-platform-kl05-kl25-kl46-/">CMSIS-DAP K20D50M [mbed.org/users/Kojto/notebook]</a><br /><br />If any questions, leave a comment or contact me on mbed. I will be working on this to complete entire HAL for K20D5M target.<br /></div>

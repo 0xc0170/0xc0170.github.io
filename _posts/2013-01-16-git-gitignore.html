@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Git & gitignore"
+date: 2013-01-16
+comments: true
+categories:
+ - git
+---
+
+<div class='post'>
+I had to create git ignore files for our project, and it took me more than my expectation. First of all, ** does not work with directories. Second of all, I had an idea to have only one ignore file with plenty of relative paths (not full but using * or ** ) but eventually it failed in my case. Thus I distributed files into subfolders where projects are generated and libraries are built.<br /><br />This post made it clear and ever since it was simple to exclude specific files in particular directories <br /><a href="http://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder">Git ignore specific files in directories [stackoverflow.com]</a><br /><br />I have something like<br /><br />!/*/build/iar/<br />/*/build/iar/*<br />!/*/build/iar/config files<br />!/*/build/iar/*.ewp<br />!/*/build/iar/*.ewd<br />!/*/build/iar/*.eww<br /><br /><br />One more tip, I have googled a bit when I faced a problem with git, and usually I landed at git ready webpage. This is excellent git reference.<br /><br /><a href="http://gitready.com/">git ready [gitready.com]</a></div>

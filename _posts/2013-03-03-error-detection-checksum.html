@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Error detection checksums (bookmark)"
+date: 2013-03-03
+comments: true
+categories:
+ - programming
+---
+
+<div class='post'>
+This post will be describing checksums only.<br />How to find out the message you received is same as the one which was sent? Checksums or CRC? there are at least dozen approaches (let's name few : additive, XOR, one's complement, two's complement, fletcher's&nbsp; and many more).<br /><br />One library I have been using implemented additive checksum. Is this the right one to implement in embedded world? The answer is provided in the next link:<br /><br /><a href="http://www.ece.cmu.edu/%7Ekoopman/thesis/maxino_ms.pdf">The Effectiveness of Checksums for Embedded Networks [ece.cmu.edu/~koopman]</a><br />One to start with, thesis dedicated to the checksums. <br /><br /><a href="http://betterembsw.blogspot.com/2010/05/which-error-detection-code-should-you.html">Which Error Detection Code Should You Use? [betterembsw.blogspot.com]</a><br />This one sums it all briefly.<br /><br /><a href="http://www.barrgroup.com/Embedded-Systems/How-To/Additive-Checksums">Additive checksums [barrgroup.com]</a><br />I usually find an article on barrgroup which forces me to look for more than just that topic.<br /><br />I am going to rewrite that additive checksum to the one's complement solution. Few more instructions executed once in a while are worth it. The implementation is in the barrgroup's article down the page. There's mistake though, sum should be 32bits in order to get properly carry bits.</div>

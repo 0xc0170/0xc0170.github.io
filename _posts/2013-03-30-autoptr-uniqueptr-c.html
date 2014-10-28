@@ -1,0 +1,11 @@
+---
+layout: post
+title: "auto_ptr , unique_ptr C++"
+date: 2013-03-30
+comments: true
+categories:
+ - C/C++
+---
+
+<div class='post'>
+I implemented kind of factory to create objects which were already alocated by one library. A user can just ask for object and the factory returns it. Firstly, it has normal pointer which leads to resource leaks. I tried to include memory header and small test application it in KEIL. It worked, the pointer gets deleted after it leaves it's scope. Thus I rewrote "factory" to return auto_ptr. Unique_ptr is not available in KEIL v4.60 (not tested in IAR yet).<br /><br />I am glad I bought Effective C++ from Scott Mayer. Many ITEMS in the book make me think why I did not think of that before. I appreciate having more books like that one.<br /><br /><a href="http://home.roadrunner.com/~hinnant/unique_ptr03.html">unique_ptr C++ [home.roadrunner.com/~hinnant/]</a><br />The site provides a comparision between auto_ptr and unique_ptr with code examples.<br /><br /></div>

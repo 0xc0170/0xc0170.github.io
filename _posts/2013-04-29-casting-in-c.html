@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Casting in C++"
+date: 2013-04-29
+comments: true
+categories:
+ - C/C++
+---
+
+<div class='post'>
+As I most of my day time code in C, I used C-style casts in the beginning. The application was mixture of C and C++ (C++ API for C static library), therefore casts were needed (void pointer to data returned).<br /><br />I corrected entire code, to replace with proper C++ casts. Because be aware of how C casts are interpreted in C++ language, they combine const_cast, static_cast and reinterpret_cast. One which works is used. Here are some disadvantages: hard to locate them, no compiler check, the ambiguity =&gt; not explicit, no dynamic runtime check (sometimes useful but costy - RTTI).<br /><br />There are 4 casting operators&nbsp; in C++: static_cast, const_cast, dynamic_cast, reinterpret_cast.<br /><br /><br /><a href="http://justcheckingonall.wordpress.com/2008/09/08/small-guide-casting-c/">Small guide to casting in C++ [justcheckingonall.wordpress.com]</a><br />It gives an insight about C++ casting,&nbsp; </div>

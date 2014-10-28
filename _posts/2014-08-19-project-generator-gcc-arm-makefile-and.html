@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Project generator - gcc arm makefile and IAR enabled (update)"
+date: 2014-08-19
+comments: true
+categories:
+ - python
+---
+
+<div class='post'>
+I just want to share that I added 2 more IDE to the project generator.<br /><br />GCC ARM export and IAR is now enabled.<br /><br /><ul><li>GCC ARM generates a makefile based project. Enabled in the mbed example as well. </li><li>IAR generates a project. Specific IAR options are not yet implemented. Thus they are predefined in the template project. As I shown with uvision class, it can be added to misc dictionary, and then parse it to get each specific settings.</li></ul>The example with mbed sources is defined for 2 target at the moment, K20 and LPC1768.<br /><br /></div>

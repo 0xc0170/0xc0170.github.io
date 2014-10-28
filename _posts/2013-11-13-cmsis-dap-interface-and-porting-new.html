@@ -1,0 +1,12 @@
+---
+layout: post
+title: "CMSIS-DAP interface and porting the new boards (news)"
+date: 2013-11-13
+comments: true
+categories:
+ - mbed
+ - CMSIS-DAP
+---
+
+<div class='post'>
+The CMSIS-DAP interface was published by mbed team 2 weeks ago. Here's the link<br /><a href="https://github.com/mbedmicro/CMSIS-DAP">CMSIS DAP [github.com/mbedmicro]</a><br /><br />The handbook for mbed firmware can be found at <a href="http://mbed.org/handbook/cmsis-dap-interface-firmware">cmsis-dap-interface-firmware [mbed.org/handbook] .</a> It explains the file structure plus some basics, not detailed implementation though, which is actually crucial. I really appreciate what mbed does and the way they do! To open and share with us this interface, takes a lot of effort.<br /><br />I decided this week, to get familiar with it, attempt to add HAL for the other freedom platforms which are already supported on mbed github (KL05Z, KL46Z). This is the last step (testing will be carried out anyway) to enable them online. They need the mbed interface!<br /><br />KL05Z is the first one I started. However, the code is commented, but not everything is clear, I have to do lot of guessing.. Thus KL05Z flashing by bin is not working yet, it returns SWD error which I located where it fails, have to examine why it fails and do some corrections.<br /><br />If I succeed, I can share the testing version of that interface.<br /><br />One side note: ARM GCC export for KL25Z will be available online soon! Can't share more at the moment, but I will !</div>

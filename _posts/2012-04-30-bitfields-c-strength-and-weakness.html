@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Bitfields C - strength and weakness"
+date: 2012-04-30
+comments: true
+categories:
+ - C/C++
+ - embedded
+---
+
+<div class='post'>
+Bitfields are powerful and widely used (mostly in embedded) although they introduce some limitations.<br /><br /><ul style="text-align: left;"><li>You can't apply address operator to bitfield because they operate on bits not bytes.&nbsp;</li><li>They are always converted to the int type for computation.</li><li>If you use signed int, be aware of the range of values for the defined type. Signed int a:1 has a value 0 or -1 not 1 !</li><li>C language gives no guarantee of the ordering of fields within machine words. The packing order are implementation defined.</li></ul><br />More reading about this topic in following sites: <br /><br /><a href="http://www.linuxforu.com/2012/01/joy-of-programming-understanding-bit-fields-c/">Understanding bit fields c [linuxforu.com]</a><br /><br /><a href="http://www.cs.cf.ac.uk/Dave/C/node13.html#SECTION001320000000000000000">C bitfields [cs.cf.ac.uk/Dave]</a><br /><br /><a href="http://www.coranac.com/documents/working-with-bits-and-bitfields/">Working with bits and bitfields [coranac.com]</a><br /><br /><a href="http://mjfrazer.org/mjfrazer/bitfields/">Bitfields Endianness [mjfrazer.org/mjfrazer]</a><br /><br /><a href="http://www.keil.com/support/man/docs/armccref/armccref_Babjddhe.htm">Bitfields Aligment [keil.com/support]</a></div>

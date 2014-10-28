@@ -1,0 +1,43 @@
+---
+layout: post
+title: "CoIDE fix for using C++"
+date: 2014-01-27
+comments: true
+categories:
+ - coide
+ - mbed
+---
+
+<div class='post'>
+Frank V. reported an issue with linking C++ libraries which I confirmed. I just issued a new pull request for mbed exporters with the fix. In case you followed my last tutorial for CoIDE &amp; mbed, this might be helpful.<br /><br />The problem was that CoIDE completely ignored c++ libraries in the Misc controls for LINK. To surpass this issue, you have to add libraries to the Linked Libraries. Add there the libraries (type there names):
+
+
+<pre>
+mbed
+stdc++
+supc++
+m
+gcc
+c
+nosys
+</pre>
+
+
+If you prefer to change it directly in the xml (coproj file), add this to already created project:
+
+<pre>
+<LinkedLibraries>
+  <Libset dir="" libs="mbed"/>
+  <Libset dir="" libs="stdc++"/>
+  <Libset dir="" libs="supc++"/>
+  <Libset dir="" libs="m"/>
+  <Libset dir="" libs="gcc"/>
+  <Libset dir="" libs="c"/>
+  <Libset dir="" libs="nosys"/>
+</LinkedLibraries>
+</pre>
+
+
+And of course, remove -lmbed; -lstdc++; -lsupc++; -lm; -lc; -lgcc; -lnosys; -lmbed; -lstdc++; -lsupc++; -lm; -lc; -lgcc; -lnosys; from UserEditLinker in the xml file or just from Misc control in the IDE. The path to look for mbed library is already there thanks to using ld file which adds it to the linker searching path. I tested this setup with cc3000 udp server demo.
+
+I added KL05Z exporter for CoIDE, can test it using project.py. There is also LPC1768 present, but currently has problems in CoIDE with CMSIS-DAP (due to the bootloader), so it's not enabled yet.

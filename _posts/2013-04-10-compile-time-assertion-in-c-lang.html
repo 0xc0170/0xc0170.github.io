@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Compile time assertion in C lang"
+date: 2013-04-10
+comments: true
+categories:
+ - C/C++
+---
+
+<div class='post'>
+I planned to check more information about compilation assertion in C. How to check for size errors, alignments during compilation phase? The answer is compilation assertion which declares a variable which causes compilation error if the condition is true. Here are "simplest" one:<br /><br /><a href="http://scaryreasoner.wordpress.com/2009/02/28/checking-sizeof-at-compile-time/">Checking sizeof at compile time [scaryreasoner.wordpress.com]</a><br />This article provides explanation of BUILD_BUG_ON macro which is used in linux for example. It can't be used in global scope because it's a statement.<br /><br /><a href="http://www.embedded.com/electronics-blogs/programming-pointers/4025549/Catching-errors-early-with-compile-time-assertions">Catching errors early with compile-time assertions [embedded.com]</a><br />Dan Saks article which solves the global scope problem with previous one,<br /><br /><pre class="brush: python">#define compile_time_assert(cond, msg) \<br />  typedef char msg[(cond) ? 1 : -1]<br /></pre><br />Even though message is not shown in some IDEs, at least code line is thus it's easy to decipher it from the msg parameter why it caused an error.<br /></div>

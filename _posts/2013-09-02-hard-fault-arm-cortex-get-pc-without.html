@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Hard fault - ARM cortex - get PC without any code"
+date: 2013-09-02
+comments: true
+categories:
+ - embedded
+---
+
+<div class='post'>
+<br />I would like to emphasize this small "trick" which is from the book <a href="http://www.amazon.co.uk/Definitive-Guide-ARM-Cortex-M0/dp/0123854776">The definitive guide to the ARM Cortex-M0</a>. <br />There are many articles explaining how to write a routine to retrieve a stack frame from a hard fault. I just want to share what I use regularly. It omits details which are crucial to find out why it has crashed. However, when I get to the problematic instruction, I realize what has gone wrong and correct that error.<br /><br />From this <a href="http://blog.feabhas.com/wp-content/uploads/2013/01/intEntryStack_small.jpg">picture</a> (reuse from sticky bits blog), you see that PC is stacked at Stack pointer value + 0x18. Thus what we need to to, get an SP pointer value (MSP register value usually). Add 0x18 to its value and we should see the address where hard fault was invoked. Isn't it easy?<br /><br /><br />Thanks Joseph Yui for particularly definite guide books for ARM !</div>

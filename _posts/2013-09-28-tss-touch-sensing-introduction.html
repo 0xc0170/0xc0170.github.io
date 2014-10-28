@@ -1,0 +1,11 @@
+---
+layout: post
+title: "TSS - Touch sensing (introduction)"
+date: 2013-09-28
+comments: true
+categories:
+ - article
+---
+
+<div class='post'>
+There was a new TSS released in the beginning of this month, version 3.1. I'll describe the features I consider are important to highlight.<br /><br /><h3>What's new?</h3><ul><li>supports TSI noise mode</li><li>new patented AFID keydetector - connected with the noise mode - noise robust (capable of passing EN 61000-4-6)</li><li>C++ wrapper</li></ul><h3><b>AFID + noise mode</b></h3>The TSS noise mode is available only for Kinetis L. How does it work inside TSS?<br />The capacitive measurement is active RESPONSE TIME-1&nbsp; number of an execution of TSS_Task. This implies that a noise is measured always once until the decision is made about the electrode status (touch/release). Since the moment, the noise is detected, the noise mode is active until there's no noise on any electrode.&nbsp; Without any noise, TSS switches back to the capacitive measurement.<br />The example named TWRKXX_DEMO_EMC shows usage of AFID and the noise mode.<br /><br /><h3>C++ wrapper</h3>We added C++ wrapper for entire TSS which simplifies TSS usage. You still have to define system setup header file (that's how TSS was designed, I would like to change this). C++ supports all features which TSS provides.<br />There are 5 controls (as in TSS), one system and the control factory. I don't introduce callback's classes here.<br />TSS_System is a singleton, which takes care of TSS settings. If you don't want to use any control, system handles everything and you can retrieve informations which are available (like electrode status).<br />If you want to use controls, take a look at TSS_ControlFactory which facilitates creation of new controls. Doesn't need to be used.<br /><br />The entire API contain doxygen comments. Open FRDMKLXX_DEMO_CPP example which is located in EXAMPLES folder to see how to create new control and register callback. <br /><br />If you have any questions, don't hesitate to ask in comments here or on freescale community. </div>

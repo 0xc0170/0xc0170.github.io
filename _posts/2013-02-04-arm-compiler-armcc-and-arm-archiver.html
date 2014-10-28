@@ -1,0 +1,11 @@
+---
+layout: post
+title: "ARM compiler (armcc) and ARM archiver (armar)"
+date: 2013-02-04
+comments: true
+categories:
+ - embedded
+---
+
+<div class='post'>
+I usually create libraries with an extension .a or .lib. As I glanced at mbed, their own library has extension .ar. KEIL comes with <a href="http://www.keil.com/arm/realview.asp">ARM Compilation Tools [www.keil.com]</a>), which is used also for embed library, as I believe.<br /><br />To compile files from which we want to create a library (target is Cortex-M0+).<br /><pre class="brush: python">armcc --cpu=Cortex-M0plus --no_debug -c file1 file2 fileXY<br /></pre><br />To create static library from object files<br /><pre class="brush: python">armar --rv archive_name object_file1 object_file2 object_fileXY<br /></pre><br />I successfully imported small static library to mbed and run it on my mbed board. There are many options to select. To read more here are the links:<br /><br /><a href="http://infocenter.arm.com/help/topic/com.arm.doc.dui0476c/DUI0476C_using_the_armar_utility.pdf">Creating static software libraries with armar (pdf) [infocenter.arm.com/help]</a><br /><a href="http://www.keil.com/support/man/docs/armcc/armcc_cihbejbb.htm">Getting Started with the Compiler [keil.com]</a></div>

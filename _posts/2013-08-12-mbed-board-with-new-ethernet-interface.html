@@ -1,0 +1,11 @@
+---
+layout: post
+title: "mbed board with new ethernet interface (KEIL debugging problem)"
+date: 2013-08-12
+comments: true
+categories:
+ - mbed
+---
+
+<div class='post'>
+I received an mbed application board the last week! Thank you <b>mbed </b>!<br /><br />I am very pleased with it &amp; mbed. New hardware platform on my desk and it provides all interfaces I need in the following weeks (perhaps even months). One of the first applications running there was new ethernet interface. As you have noticed, I am inclined to debug the code (oh yes, no TDD yet), if any problem arises. Eventually I run into one, exported an application to KEIL. As soon as it hits eth.init() function, it gets trapped on very famous BKPT instruction. A bit digging into the source code, I found out it was because of a semihosting request of the mac address. It is known issue.<br /><br />As proposed by mbed guys, it could be easily fixed. I am testing at the moment the implementation of defining own mac address which enables to debug any ethernet code with CMSIS-DAP on mbed board. <br /><br />One question, has anybody notice the size of ethernet applications (rtos, tcp/ip stack + small application) ?? It's around 87kB of the text size..</div>

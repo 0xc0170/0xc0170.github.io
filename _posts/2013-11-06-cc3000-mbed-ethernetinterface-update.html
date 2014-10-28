@@ -1,0 +1,11 @@
+---
+layout: post
+title: "cc3000 mbed - EthernetInterface (update)"
+date: 2013-11-06
+comments: true
+categories:
+ - mbed
+---
+
+<div class='post'>
+Quick update, what's going to come to the host driver for cc3000 on mbed. We have been fixing few issues in the driver and implemented the new API (just an extension of the current one) which is easier to use. And mostly users with mbed will be familiar with it, because lot of net drivers are using the same API.<br /><br />I pushed all these changes today, slowly updating all examples, you can currently check this change in the hello world demo, ntp client demo. There's some clean-up to do as well. The constructor for cc3000 was changed. That was the only change which broke the previous code in all demos, sorry.<br /><br />I will post some updates about the mbed, I have added few more things there for the freedom platform. Also I attended the mbed connect meeting in San Jose. More to come!</div>

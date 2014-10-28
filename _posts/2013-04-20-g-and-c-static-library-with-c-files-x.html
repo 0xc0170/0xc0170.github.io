@@ -1,0 +1,11 @@
+---
+layout: post
+title: "G++ and C static library with C files ( -x flag )"
+date: 2013-04-20
+comments: true
+categories:
+ - C/C++
+---
+
+<div class='post'>
+I faced one rather small problem which engaged me for a while. I ported C++ demo application to CodeWarrior 10.3 using g++. Linked library was compiled with gcc.<br />Linker was against me to build the demo. It shown undefined variable errors in static library (library plus some files which are outside of the library). I knew those undefined variables are properly declared and had to be visible to the linker. The output in a console was allright at first sight.<br /><br />I explored linker settings in CW (not much to do with options there, preferably to use own linker commands). Did not do the trick. I proceeded to compiler, here's link which made it clear:<br /><br /><a href="http://cf.ccmr.cornell.edu/cgi-bin/w3mman2html.cgi?gcc">man gcc [cf.ccmr.cornell.edu/cgi-bin]</a><br /><br />Particulary option -x none. I did not see any -x in the console output. Once I had added it into command line pattern, it linked.<br /><br />"${ARMSourceryDir}/${COMMAND}" -x none ${INPUTS} ${FLAGS} ${OUTPUT_FLAG}${OUTPUT_PREFIX}${OUTPUT}<br /><br /><br /></div>

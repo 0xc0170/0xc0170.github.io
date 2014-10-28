@@ -8,8 +8,8 @@ pygments: true
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : '0xc0170'
-tagline: Site Tagline
+title : "0xc0170"
+tagline: Personal website
 author :
   name : Martin Kojtal
   email : c0170@rocketmail.com

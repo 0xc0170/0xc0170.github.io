@@ -29,7 +29,7 @@ tagline: Notes, code snippets, projects
           </ul>
           <div> For older posts, look at <a href="/pages/nav/archive.html">Archive</a></div>
       </div>
-
+      <!--
       <div class="span2 offset 1">
           <h4>Categories</h4>
           <ul class="tag_box inline">
@@ -37,7 +37,7 @@ tagline: Notes, code snippets, projects
               {% include JB/categories_list %}
           </ul>
       </div>
-
+      -->
   </div>
 </div>
 

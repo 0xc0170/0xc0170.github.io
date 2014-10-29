@@ -8,11 +8,12 @@ categories:
  - mbed
 ---
 
-<div class='post'>
-Frank V. reported an issue with linking C++ libraries which I confirmed. I just issued a new pull request for mbed exporters with the fix. In case you followed my last tutorial for CoIDE &amp; mbed, this might be helpful.<br /><br />The problem was that CoIDE completely ignored c++ libraries in the Misc controls for LINK. To surpass this issue, you have to add libraries to the Linked Libraries. Add there the libraries (type there names):
+Frank V. reported an issue with linking C++ libraries which I confirmed. I just issued a new pull request for mbed exporters with the fix. In case you followed my last tutorial for CoIDE &amp; mbed, this might be helpful.
+
+The problem was that CoIDE completely ignored c++ libraries in the Misc controls for LINK. To surpass this issue, you have to add libraries to the Linked Libraries. Add there the libraries (type there names):
 
 
-<pre>
+```
 mbed
 stdc++
 supc++
@@ -20,12 +21,12 @@ m
 gcc
 c
 nosys
-</pre>
+```
 
 
 If you prefer to change it directly in the xml (coproj file), add this to already created project:
 
-<pre>
+```
 <LinkedLibraries>
   <Libset dir="" libs="mbed"/>
   <Libset dir="" libs="stdc++"/>
@@ -35,7 +36,7 @@ If you prefer to change it directly in the xml (coproj file), add this to alread
   <Libset dir="" libs="c"/>
   <Libset dir="" libs="nosys"/>
 </LinkedLibraries>
-</pre>
+```
 
 
 And of course, remove -lmbed; -lstdc++; -lsupc++; -lm; -lc; -lgcc; -lnosys; -lmbed; -lstdc++; -lsupc++; -lm; -lc; -lgcc; -lnosys; from UserEditLinker in the xml file or just from Misc control in the IDE. The path to look for mbed library is already there thanks to using ld file which adds it to the linker searching path. I tested this setup with cc3000 udp server demo.

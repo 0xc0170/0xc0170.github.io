@@ -19,7 +19,7 @@ tagline: Notes, code snippets, projects
                 <strong>
                     {{ post.date | date_to_string }}
                 </strong>
-                | Category: {{ post.categories }}
+                | Category: {% for cat in post.categories %} <a href="/pages/nav/categories.html#{{cat}}-ref">{{cat}}</a> {% endfor %}
               </p>
               {% if forloop.last %}
               {% else %}

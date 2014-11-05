@@ -9,21 +9,4 @@ categories:
 
 <div class='post'>
 As I wrote previously, we have been working on cc3000 driver which was released yesterday on mbed. It was about the time, I started to port C code to C++ back in August. I did not anticipate the chip is so complex.<br /><br />Here's link to the cookbook <a href="http://mbed.org/cookbook/cc3000">cc3000 cookbook [http://mbed.org/cookbook]</a><br /><br />I also published 11 examples ready to be used for any mbed platform available on mbed (2 boards have predefined init function, the others need to be added based on user's configuration). Mbed Socket interface is part of cc3000 driver which enables to use many ethernet libraries. To mention some HTTPclient, Twitter, Websockets.<br /><br />I had so much fun with it, the most excited I was when tweet from my Wi-Go was published. Not to mention that this driver was also mentioned on adafruit blog : <a href="http://www.adafruit.com/blog/2013/10/08/cc3000-for-mbed/">cc3000 for mbed [http://www.adafruit.com/blog/]</a><br />I hope that driver will help many people with IoT &amp; mbed !<br /><br />Does anybody need any tutorials about cc3000? How smartconfig works (and picture step-by-step guide for the Simple socket demo) ?<br />Or what about any missing demo for cc3000? Leave a comment.</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>ultras82</div>
-<div class='content'>
-Hi Martin,<br /><br />I am using the QP framework (http://www.state-machine.com/) for my application and it&#39;s difficult to integrate/compile under mbed. In general I like mbed and I don&#39;t mind using it, but I can&#39;t see how can I do it in this project.<br /><br />Best regards!</div>
-</div>
-<div class='comment'>
-<div class='author'>Martin Kojtal</div>
-<div class='content'>
-Just a curiosity: why not to use mbed for KL25Z board?<br /><br />The cc3000 mbed host driver could be modified to not use mbed. The SPI object will need some modification (SPI, IRQ pin, interrupts). The start point for the mbed version was C version, but it&#39;s difficult to start with. However, I can ask the developer for options to share it online, if anybody is interested.<br /><br />Regards,<br />0xc0170</div>
-</div>
-<div class='comment'>
-<div class='author'>ultras82</div>
-<div class='content'>
-I would love to see a tutorial how to interface cc3000 from KLxx MCU without using mbed. This is something I have to do into the coming days :). <br /><br />Best regards!</div>
-</div>
 </div>
